@@ -6,7 +6,7 @@ function Pokemon() {
   const [id, setId] = useState(1);
 
   const handlePrevious = () => { 
-    setId(id - 1);
+    id > 1 && setId(id - 1);
   };
 
   const handleNext = () => { 
@@ -27,8 +27,8 @@ function Pokemon() {
         <h2>{pokemon.name}</h2>
         <img src={pokemon.sprites.front_default} alt={pokemon.name} />
         <br />
-        <button onClick={handlePrevious}>Previous</button>
-        <button onClick={handleNext}>Next</button>
+        {id > 1 ? <button onClick={handlePrevious}>Anterior</button> : <button disabled>Anterior</button>}
+        <button onClick={handleNext}>Siguiente</button>
       </div>}</div>
   )
 }
